@@ -1,0 +1,73 @@
+{
+    "name": "mezzio/mezzio-laminasviewrenderer",
+    "description": "laminas-view PhpRenderer integration for Mezzio",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "laminas",
+        "mezzio",
+        "http",
+        "middleware",
+        "psr",
+        "psr-7"
+    ],
+    "homepage": "https://mezzio.dev",
+    "support": {
+        "docs": "https://docs.mezzio.dev/mezzio/features/template/laminas-view/",
+        "issues": "https://github.com/mezzio/mezzio-laminasviewrenderer/issues",
+        "source": "https://github.com/mezzio/mezzio-laminasviewrenderer",
+        "rss": "https://github.com/mezzio/mezzio-laminasviewrenderer/releases.atom",
+        "chat": "https://laminas.dev/chat",
+        "forum": "https://discourse.laminas.dev"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laminas": {
+            "config-provider": "Mezzio\\LaminasView\\ConfigProvider"
+        }
+    },
+    "require": {
+        "php": "^7.3 || ~8.0.0 || ~8.1.0",
+        "laminas/laminas-servicemanager": "^2.7.8 || ^3.4",
+        "laminas/laminas-view": "^2.12.0",
+        "mezzio/mezzio-helpers": "^5.0",
+        "mezzio/mezzio-router": "^3.0",
+        "mezzio/mezzio-template": "^2.0",
+        "psr/container": "^1.0",
+        "psr/http-message": "^1.0.1"
+    },
+    "require-dev": {
+        "laminas/laminas-coding-standard": "~2.3.0",
+        "phpspec/prophecy": "^1.14.0",
+        "phpspec/prophecy-phpunit": "^2.0.1",
+        "phpunit/phpunit": "^9.5.10",
+        "psalm/plugin-phpunit": "^0.16.1",
+        "vimeo/psalm": "^4.10"
+    },
+    "conflict": {
+        "container-interop/container-interop": "<1.2.0",
+        "zendframework/zend-expressive-zendviewrenderer": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mezzio\\LaminasView\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MezzioTest\\LaminasView\\": "test/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "static-analysis": "psalm --shepherd --stats"
+    }
+}
